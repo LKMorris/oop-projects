@@ -3,13 +3,47 @@
 require_once 'Autoload/autoload.php';
 
 $class = New Sports\Teams\MatchData();
-echo $class->getSportVenue();
-
 $class->setSportType('Soccer');
-echo $class->getSportType();
-
 $class->setTeamNames('Spurs v Liverpool');
-echo $class->getTeamNames();
-
 $class->setDateTime('2022-08-10 15:00:00');
-echo $class->getDateTime();
+?>
+
+<div class="container">
+    <div class="match-info">
+        <h3>Sport Type: </h3><p><?php print_r($class->getSportType()); ?></p>
+    </div>
+    <div class="match-info">
+        <h3>Venue: </h3><p><?php print_r($class->getSportVenue()); ?></p>
+    </div>
+    <div class="match-info">
+        <h3>Teams: </h3><p><?php print_r($class->getTeamNames()); ?></p>
+    </div>
+    <div class="match-info">
+        <h3>Kick-Off:</h3><p><?php print_r($class->getDateTime()); ?></p>
+    </div>
+    <div class="match-info">
+        <h3>Kick-Off (formatted): </h3><p><?php print_r($class->getDateTime('j F Y H:i')); ?></p>
+    </div>
+</div>
+
+<style>
+    .container {
+        width: 400px;
+        background-color: lightgray;
+        border-radius: 10px;
+    }
+
+    .match-info{
+        padding: 10px;
+        border-bottom: 1px solid white;
+    }
+
+    .match-info:nth-last-child(1){
+        border-bottom: none;
+    }
+
+    h3, p {
+        display: inline-block;
+        width: 50%;
+    }
+</style>
