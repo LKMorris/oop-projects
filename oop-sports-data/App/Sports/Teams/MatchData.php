@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Sports\Teams;
+namespace Sports\Teams;
 
 class MatchData
 {
