@@ -50,9 +50,9 @@ class MatchData
     }
 
 
-    public function getDateTime(): string
+    public function getDateTime($format = 'Y-m-d H:i:s'): string
     {
-        return $this->_dateTime;
+        return date($format, strtotime($this->_dateTime));
     }
 
 
