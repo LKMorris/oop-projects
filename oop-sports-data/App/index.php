@@ -1,6 +1,9 @@
 <?php
 
-require_once 'Autoload/autoload.php';
+require_once 'Autoload/Loader.php';
+$loader = new \Autoload\Loader();
+// requires anything that is "callable"
+spl_autoload_register($loader);
 
 $class = New Sports\Teams\MatchData();
 $class->setSportType('Soccer');
