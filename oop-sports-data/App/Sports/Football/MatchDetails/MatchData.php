@@ -9,7 +9,8 @@ class MatchData extends Football
 
     public $sport;
 
-    public function __construct(string $sport){
+    public function __construct(string $sport)
+    {
         $this->sport = $sport;
         return $sport;
     }

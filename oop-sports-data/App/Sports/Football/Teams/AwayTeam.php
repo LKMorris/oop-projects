@@ -14,7 +14,7 @@ class AwayTeam extends TeamList
         foreach ($awayTeams as $awayTeam){
             $id = $awayTeam['team_id'];
             if($awayTeam['home_away'] == 'Away'){
-                $html .= '<div class="match-team-list"><h4><a href="Sports/' . $id . '/MatchPage.php">' . $awayTeam['name'] . '</a></h4>';
+                $html .= '<div class="match-team-list"><a href="Sports/' . $id . '/MatchPage.php"><h4>' . $awayTeam['name'] . '</a></h4>';
                 $html .= '<div class="previous-results"><span>record: </span>' . implode('', $awayTeam['results']);
                 $html .= '</div>';
                 $html .= '</div>';

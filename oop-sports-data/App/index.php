@@ -5,15 +5,25 @@ $loader = new \Autoload\Loader();
 // requires anything that is "callable"
 spl_autoload_register($loader);
 
-$home = new Sports\Football\Teams\HomeTeam();
-$home->setHomeTeams();
+use Sports\Football\Tickets\Invoice;
+use Sports\Football\Tickets\Customer;
 
+$home = new Sports\Football\Teams\HomeTeam();
 $away = new Sports\Football\Teams\AwayTeam();
-$away->setAwayTeams();
 
 $class = New Sports\Football\MatchDetails\MatchData('Soccer');
 $class->setTeamNames('Aston Villa v Everton');
 $class->setDateTime('2022-08-13 15:00:00');
+
+//$invoice = new Invoice(new Customer());
+//
+//try {
+//    $this->process(25);
+//} catch (\App\Exception\MissingBillingInfoException $e){
+//    echo $e->getMessage() . ' ' . $e->getFile() . ' ' . $e->getLine() . PHP_EOL;
+//} catch (\InvalidArgumentException $e){
+//    echo 'Invalid Argument Exception' . PHP_EOL;
+//}
 
 ?>
 
