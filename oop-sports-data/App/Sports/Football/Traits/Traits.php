@@ -18,14 +18,9 @@ trait Trait2
     }
 }
 
-trait Trait3
-{
-    use Trait1, Trait2;
-}
-
 class MyClass
 {
-    use Trait3;
+    use Trait1, Trait2;
 
     public function method3()
     {
@@ -34,4 +29,6 @@ class MyClass
 }
 
 $a = new MyClass();
+$a->method1();
+$a->method2();
 $a->method3();

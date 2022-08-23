@@ -1,30 +1,36 @@
 <?php
 
-require_once 'Autoload/Loader.php';
+require_once 'Loader.php';
 $loader = new \Autoload\Loader();
 // requires anything that is "callable"
 spl_autoload_register($loader);
-
-use Sports\Football\Tickets\Invoice;
-use Sports\Football\Tickets\Customer;
-
-$home = new Sports\Football\Teams\HomeTeam();
-$away = new Sports\Football\Teams\AwayTeam();
-
-$class = New Sports\Football\MatchDetails\MatchData('Soccer');
-$class->setTeamNames('Aston Villa v Everton');
-$class->setDateTime('2022-08-13 15:00:00');
-
+//
+//use Sports\Football\Tickets\Invoice;
+//use Sports\Football\Tickets\Customer;
+//use ExceptionNS\MissingBillingInfoException;
+//
+//$home = new Sports\Football\Teams\HomeTeam();
+//$away = new Sports\Football\Teams\AwayTeam();
+//
+//$class = New Sports\Football\MatchDetails\MatchData('Soccer');
+//$class->setTeamNames('Aston Villa v Everton');
+//$class->setDateTime('2022-08-13 15:00:00');
+//
 //$invoice = new Invoice(new Customer());
 //
 //try {
-//    $this->process(25);
-//} catch (\App\Exception\MissingBillingInfoException $e){
+//    $invoice->process(25);
+//} catch (MissingBillingInfoException $e){
 //    echo $e->getMessage() . ' ' . $e->getFile() . ' ' . $e->getLine() . PHP_EOL;
 //} catch (\InvalidArgumentException $e){
 //    echo 'Invalid Argument Exception' . PHP_EOL;
 //}
 
+use Sports\Football\Teams\TeamList\TeamListDb;
+$class = new TeamListDb();
+$teams = $class->getTeamList();
+var_dump($teams);
+die;
 ?>
 
 <div class="container match-list">
