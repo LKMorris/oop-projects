@@ -7,20 +7,25 @@ use PDO;
 class Resource
 {
 
+	public $connection = NULL;
+	public function __construct(public array $config)
+	{}
     /**
      * @return false|PDO
      */
     public function getConnection()
     {
-        $servername = "localhost";
-        $username = "root";
-        $password = "root";
-        $dbname = "scoresniper";
+
+		if (!empty($this->connection)) return $this->connection;
+        $servername = $this->config['servername'];
+        $username   = $this->config['username'];
+        $password   = $this->config['password'];
+        $dbname     = $this->config['dbname'];
 
         try {
 
-            $connection = new PDO("mysql:host={$servername};dbname={$dbname}", $username, $password);
-            return $connection;
+            $this->connection = new PDO("mysql:host={$servername};dbname={$dbname}", $username, $password);
+            return $this->connection;
 
         } catch (PDOException $e) {
             echo 'PDOException: ' . $e->getMessage();

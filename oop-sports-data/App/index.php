@@ -1,5 +1,5 @@
 <?php
-
+$config = include __DIR__ . '/config/config.php';
 require_once 'Loader.php';
 $loader = new \Autoload\Loader();
 // requires anything that is "callable"
@@ -27,7 +27,8 @@ spl_autoload_register($loader);
 //}
 
 use Sports\Football\Teams\TeamList\TeamListDb;
-$class = new TeamListDb();
+use Db\Resource;
+$class = new TeamListDb(new Resource($config));
 $teams = $class->getTeamList();
 var_dump($teams);
 die;
